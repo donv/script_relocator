@@ -1,7 +1,44 @@
 # ScriptRelocator
 
 Rack middleware to relocate JavaScript tags to the end of an HTML response body.
-Only handles non-streaming `text/html` reponses.
+
+Only handles non-streaming `text/html` reponses.  All other responses will be left alone.
+The result should be a response that more quickly can be used to render the initial page before all
+scripts have been loaded.
+
+Given an example response
+
+```html
+<html>
+  <head>
+    <script ... src="script1"></script>
+  </head>
+  <body>
+    ...
+    <script ... >
+      script2
+    </script>
+  </body>
+</html>
+```
+
+The response will be transformed to have the scripts at the end of the `body` tag:
+
+```html
+<html>
+  <head>
+  </head>
+  <body>
+    ...
+    <script ... src="script1" data-turbolinks-eval="false" ></script>
+    <script ... >
+      script2
+    </script>
+  </body>
+</html>
+```
+
+White space around the tags are not moved, so formatting may look a bit differently.
 
 
 ## Installation
@@ -29,6 +66,11 @@ For other Rack application use it as middleware:
 ```ruby
   use ScriptRelocator::Rack
 ```
+
+### TurboLinks
+
+`script` tags inside the `head` tag are marked with the `data-turbolinks-eval="false"` attribute so
+ they are not re-evaluated when navigating using TurboLinks.
 
 
 ## Development
