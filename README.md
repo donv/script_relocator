@@ -20,6 +20,11 @@ Given an example response
     <script ... >
       script2
     </script>
+    ...
+    <script ... >
+      script3
+    </script>
+    ...
   </body>
 </html>
 ```
@@ -32,15 +37,21 @@ The response will be transformed to have the scripts at the end of the `body` ta
   </head>
   <body>
     ...
+    ...
+    ...
     <script ... src="script1" data-turbolinks-eval="false" ></script>
     <script ... >
       script2
+    </script>
+    <script ... >
+      script3
     </script>
   </body>
 </html>
 ```
 
 White space around the tags are not moved, so formatting may look a bit differently.
+The ordering of the `script` tags is preserved.
 
 
 ## Installation
