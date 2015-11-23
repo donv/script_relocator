@@ -1,3 +1,5 @@
+[![Gem Version](https://badge.fury.io/rb/script_relocator.svg)](https://badge.fury.io/rb/script_relocator)
+
 # ScriptRelocator
 
 Rack middleware to relocate JavaScript tags to the end of an HTML response body.
