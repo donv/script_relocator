@@ -32,6 +32,6 @@ module ScriptRelocator
   end
 end
 
-if defined? Rails
+if defined?(Rails) && Rails.application
   Rails.application.config.middleware.use ScriptRelocator::Rack
 end

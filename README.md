@@ -1,4 +1,5 @@
 [![Gem Version](https://badge.fury.io/rb/script_relocator.svg)](https://badge.fury.io/rb/script_relocator)
+[![Build Status](https://travis-ci.org/donv/script_relocator.svg?branch=master)](https://travis-ci.org/donv/script_relocator)
 
 # ScriptRelocator
 
