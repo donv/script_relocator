@@ -1,4 +1,3 @@
-require "script_relocator/version"
 require 'nokogiri'
 
 module ScriptRelocator
