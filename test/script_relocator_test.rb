@@ -1,5 +1,8 @@
 require 'minitest/autorun'
+require 'minitest/reporters'
 require 'script_relocator'
+
+MiniTest::Reporters.use!
 
 class ScriptRelocatorTest < Minitest::Test
   def test_constructor
