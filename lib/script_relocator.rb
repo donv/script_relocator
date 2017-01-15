@@ -21,7 +21,7 @@ module ScriptRelocator
         s.remove
         doc.at('body') << s
       end
-      transformed_body = doc.to_html
+      transformed_body = doc.canonicalize
       if headers.key?('Content-Length') &&
           headers['Content-Length'].to_i != transformed_body.length
         headers['Content-Length'] = transformed_body.length.to_s
